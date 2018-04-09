@@ -4,10 +4,24 @@ function updateStatus() {
     storage.get('isActive', function (val) {
         if (val.isActive) {
             checkbox.checked = false;
-            chrome.browserAction.setIcon({ path: 'img/spip-off.png' });
+            chrome.browserAction.setIcon({
+                path: {
+                    "16": "img/16-icon-off.png",
+                    "32": "img/32-icon-off.png",
+                    "48": "img/48-icon-off.png",
+                    "128": "img/128-icon-off.png"
+                } 
+            });
             storage.set({ 'isActive': false });
         } else {
-            chrome.browserAction.setIcon({ path: 'img/spip-on.png' });
+            chrome.browserAction.setIcon({
+                path: {
+                    "16": "img/16-icon.png",
+                    "32": "img/32-icon.png",
+                    "48": "img/48-icon.png",
+                    "128": "img/128-icon.png"
+                }
+            });
             checkbox.checked = true;
             storage.set({ 'isActive': true });
         }
